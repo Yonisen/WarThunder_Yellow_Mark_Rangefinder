@@ -11,6 +11,7 @@ Uses screenshots and overlay. Based on a neural network YOLOv5 from ultralitics.
 - Read `Instruction.txt` (it also contains interesting features)
 
 ## Distance measurement (t)
+There are Russian inscriptions on the screenshots, but when you download the archive it will be in English<br>
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen70.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen71.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen72.jpg">
