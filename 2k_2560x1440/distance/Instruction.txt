@@ -1,0 +1,211 @@
+Version 21
+There may be a newer one on github: *
+
+If you have a monitor that is not in the repository, then write Yonisen#3035 in the discord
+i will add support for your monitor
+
+
+Preparing:
+
+Install on your computer:
+Python 3.10.6
+	https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe
+	!!! at the beginning of the installation, check the box "add python.exe to PATH"
+
+Double-click to run the file "installation.py" from the distance folder
+The console will open, wait for the installation to complete, the console will close itself
+
+The above steps only need to be done once.
+Now the program is ready to work
+
+
+Setting up WarThunder:
+
+Set game resolution to fullscreen window (options-graphics:mode)
+Set minimap size to 133% (largest) (options-mainParameters-groundVehicleBattleSettings:tacticalMapScale)
+Assign a button to the yellow mark (controls-common:setTargetForSquad)
+Wartunder is now configured
+
+Setting buttons for the rangefinder:
+
+Go to distance/miniMap folder
+Open the "buttons.ini" file with notepad
+Assign combinations for distance measurement and scale setting that are convenient for you
+I recommend using the same button for distance measurement as for the yellow mark
+
+(example string for keyboard:
+					distance measurement = <ctrl>+<alt>+<shift>+k+f)
+(examples for the mouse:
+					distance measurement mouse = left
+					mouse scale setting = middle)
+
+If you are not sure how to correctly designate the mouse button
+run testMouse.py script by double click and click this button
+it will show you its correct designation
+You can delete extra buttons (dont delete the entire line, just the part to the right of the equal sign)
+You can also leave the default values (t and Ctrl+N)
+Close the file with saving changes
+
+How to start the rangefinder?
+
+Go to distance/miniMap folder
+
+Double click to run the python script miniMap.py
+The console will open, after a while the inscription should appear: "The program is waiting for a keystroke"
+This inscription indicates the successful launch of the script
+
+Everything is ready to go
+
+When you get to a new map in the WT, look at the scale of the minimap in the lower right corner
+Press keyboard shortcut for setting scale (by default Ctrl+N)
+A window with a map scale will open
+compare the value in the "s.number" line with the actual scale of the map
+if the values are different, press Alt to see the in-game cursor
+click on the black square on the overlay and copy the number from the minimap (4 digit limit)
+after that, click on the "scale" button
+the value in the string "s.number" will change
+After that, I advise you to close the scale window
+
+Now you can measure the distance
+Aim at the point to which you want to measure the distance
+(you can aim from a sight, from binoculars and from a third person)
+Put a yellow mark and press the key to measure the distance (default t)
+These actions can be assigned to the same button
+The distance will appear as an additional temporary overlay (for 7 seconds)
+
+
+This completes the guide for working with the program, further is details
+
+
+Sometimes it will happen that you will see an inscription on the screen:
+"Your tank was not found" or "Mark not found"
+This indicates that the neural network could not find
+Required object on the minimap
+This means that the neural network needs more data for additional training.
+And you have them
+If you look in the folder distance/miniMap/not_found
+You will be able to find all cases of false measurments that have occurred
+While you were using the program
+Once you have enough data
+You can send them to me, and I will train an existing neural network
+So that it would not be mistaken in such situations again.
+
+
+Possibly in very rare cases
+You will see a standard overlay of distance and azimuth
+Which for some reason are obviously wrong
+It is easier to understand this by azimuth, for example, not 190 degrees, but 350
+In this case, to identify the error, minimize the game
+Open the folder distance/miniMap, there you will see a temporary screenshot
+Map.png, this is the screenshot by which the program measured the range
+Also, the results are saved in the console after each measurement.
+Copy the extreme measurement data to notepad
+And copy the screenshot
+In a separate folder
+After that, you can figure out what caused the error.
+To do this, open the Map.png file with Paint
+And check if the coordinates are correct
+The tank position from the console is the center of the triangle in the screenshot
+The center of the yellow mark. This is clear
+Next, the coordinates of the letters
+These letters are in the screenshot on the left, such a column as in a naval battle
+Check the coordinates of the top left corners of those
+What is used to calculate the scale
+If there was an incorrect measurement of the distance, then somewhere there must be
+mismatch between screenshot and console
+Finding this discrepancy, it will be possible to understand what the error is.
+And edit the script
+
+
+
+
+Interesting features:
+Sometimes, especially when your tank is not horizontal
+The azimuth on the overlay starts showing some shit
+He writes 262.4 and on the compass in the WT you can see 261.9
+So this is not an overlay fouled, these are the developers of the WT fucked up
+If you put your tank on its side, you will go crazy because the compass is smeared all over the screen
+You don't have to worry about it, the accuracy of measuring the distance does not depend on the inclination of your tank
+
+But it is worth noting that when you leave the minimap, the label of your tank changes
+and does not go beyond the minimap, although you can travel quite far
+Range, in this case, is calculated as usual, according to the triangular mark on the minimap
+And the accuracy depends on how far you have gone from the center of this mark.
+If you move away from the edge of the map by 100 meters, then your distance from the center of the triangular mark will be approximately 120-140 meters
+That is, if the range measurement shows 900 meters, then the actual range is 1020-1040 meters
+
+This rangefinder has an error due to non-absolute accuracy of recognition of two objects on the minimap
+(yellow mark and triangle of your tank) with two neural networks. The error is supposedly 3-4 pixels
+What on fullHD screens gives a spread of +-20 meters, regardless of the distance
+(A tank is 100 meters away, the rangefinder may show 80, a tank is 1000 meters away, the rangefinder may show 1020)
+This may not be enough to throw AVRE shells 3 kilometers into the tank hull
+(The point is the excessive "parabolic" trajectory of the projectile in this case. When it flies from top to bottom, these 20 meters can turn into a miss)
+(But if the projectile flies more or less straight, and hits the target as to the side, the vertical window for hitting the tank can reach 100 meters)
+(Think for yourself, when the enemy is close to you, 300 meters, you can aim at him with a mark of 100 or 500 on the scope, and still
+the mark will be within the silhouette of the tank and you will hit)
+Also, the inaccuracy is introduced by the fact that the rangefinder does not work with a large map, but with a minimap
+The main purpose of this rangefinder is to give players
+On all sorts of 34s, Shermans, KV-2s that do not have a laser rangefinder
+The ability to quickly measure the distance and make a shot, within a second after the enemy is detected
+And hit the target even if the enemy is a couple of kilometers away from you.
+I want every player on any BR to have a "laser" rangefinder
+Which does not interact with the game process in any way, and apparently is not detected by the WT and anti-cheat
+The whole process is built on screenshots and an overlay on top of all windows
+(although topmost and forced window on top of all windows are debatable)
+
+Regarding the distance measurement speed:
+When you press the button
+The yellow mark does not appear on the screen immediately
+On my computer it appears after 200-250ms
+I don't know what caused it, the computing power or something else
+Therefore, I set a timeout in my program (300 ms) so that it does not take a screenshot ahead of time
+If you ever notice on your computer that you have put a yellow mark in an obvious place,
+and the program will write to you that the label was not found
+Let me know, I will increase the timeout
+If you have a powerful computer and want to try reducing the latency
+Then open the miniMap.py file with a code editor (Notepad++) and change the line that says: time.sleep(0.3)
+
+It is also worth noting if you start measuring the distance and at the same time hold an extraneous key
+For example W, to move forward, and after measuring the range, you still have not released this key
+Then its effect is canceled, that is, the tank stops as if the key was not pressed
+This is because during the execution of the script, the focus from the warthunder window disappears for a moment.
+
+It is also worth considering that the distance on the overlay is closest to reality if you are with the enemy
+are at the same height, if the enemy is higher or lower than you, then the distance will be slightly underestimated
+compared to reality
+
+
+
+
+
+	What else can be done, but I will not do
+
+	It is possible instead of displaying a dialog box
+	Take the distance and set it with a script in the scope
+	So that you don’t have to turn the fucking wheel yourself
+	As I understand it, you need to open the sight file directly in the script
+	see where your needed the distance on the reticle
+	if the sight is not very accurate (not every 50 meters)
+	you will probably have to interpolate
+	should get a position on the reticle
+	next you need to measure the distance in pixels from the zeroed sight
+	to the found position
+	let's say some number comes out: 3418 pixels
+	then call computer scroll
+	you can even scroll with more than one command
+	and create an emulation of 15-20 scrolls
+	and so that at some point the scrolling goes beyond 3418 pixels
+	as if scrolling a little further
+	but eventually returned to 3418 pixels
+	and show a pop-up notification when the crosshair is set
+
+	you can also probably take into account the parallax for SB
+	if i understand correctly
+	if you do auto setting distance, then
+	you need to have a scope for each tank
+	if you are going to take into account parallax, then this one
+	the most parallax apparently should be taken into account
+
+
+
+
