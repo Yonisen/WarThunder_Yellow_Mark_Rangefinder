@@ -1,8 +1,10 @@
 Version 21
-There may be a newer one on github: *
+There may be a newer one on github: https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder
 
 If you have a monitor that is not in the repository, then write Yonisen#3035 in the discord
 i will add support for your monitor
+
+You should know that this is mostly a google translation but I think you will understand the meaning
 
 
 Preparing:
