@@ -15,6 +15,7 @@ This version is a translation of my original which is <a href="https://github.co
 
 ## Distance measurement (t)
 There are Russian inscriptions on the screenshots, but when you download the archive it will be in English<br>
+
 <img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen70.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen71.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen72.jpg">
