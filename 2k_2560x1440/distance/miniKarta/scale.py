@@ -48,34 +48,7 @@ try:
             traceback.print_exc()
             file.close()           
 
-    root = Tk()
-    root.geometry("173x70+15+71") 
-    check = (root.register(validation), "%P")
-    entry = Entry(fg="yellow", bg="black", font=('Roboto','16'), width = 5, validate="key", validatecommand=check)
-    entry.master.overrideredirect(True)
-    entry.master.lift()
-    entry.master.wm_attributes("-topmost", True)
-    entry.place(x=12, y=38)
-
-    btn = ttk.Button(text="Scale", command=get_text)
-    btn.master.overrideredirect(True)
-    btn.master.lift()
-    btn.master.wm_attributes("-topmost", True)
-    btn.place(x=87, y=40)
-
-    btn1 = ttk.Button(text="X", command=close, width=3)
-    btn1.master.overrideredirect(True)
-    btn1.master.lift()
-    btn1.master.wm_attributes("-topmost", True)
-    btn1.place(x=140, y=3)
-
-    label = Label(root, text=f's. {scale}', font=('Roboto','19'), fg='yellow', bg='brown')
-    label.master.overrideredirect(True)
-    label.master.lift()
-    label.master.wm_attributes("-topmost", True)
-    label.pack()
-    
-    def selectWindow():
+    def selectWindow(event):
         try:
             toplist = []
             winlist = []
@@ -95,6 +68,36 @@ try:
             traceback.print_exc(file=file, chain=True)
             traceback.print_exc()
             file.close()                
+
+    root = Tk()
+    root.geometry("173x70+15+71") 
+    check = (root.register(validation), "%P")
+    entry = Entry(fg="yellow", bg="black", font=('Roboto','16'), width = 5, validate="key", validatecommand=check)
+    entry.master.overrideredirect(True)
+    entry.master.lift()
+    entry.master.wm_attributes("-topmost", True)
+    entry.place(x=12, y=38)
+
+    btn = ttk.Button(text="Scale", command=get_text)
+    btn.master.overrideredirect(True)
+    btn.master.lift()
+    btn.master.wm_attributes("-topmost", True)
+    btn.place(x=87, y=40)
+
+    btn1 = ttk.Button(text="X", command=close, width=3)
+    btn1.bind("<Button-1>",selectWindow)
+    btn1.bind("<Button-2>",selectWindow)
+    btn1.bind("<Button-3>",selectWindow)
+    btn1.master.overrideredirect(True)
+    btn1.master.lift()
+    btn1.master.wm_attributes("-topmost", True)
+    btn1.place(x=140, y=3)
+
+    label = Label(root, text=f's. {scale}', font=('Roboto','19'), fg='yellow', bg='brown')
+    label.master.overrideredirect(True)
+    label.master.lift()
+    label.master.wm_attributes("-topmost", True)
+    label.pack()
 
     timeout = 0
     t = Timer(timeout, selectWindow)
