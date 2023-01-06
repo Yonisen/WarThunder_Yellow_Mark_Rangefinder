@@ -173,38 +173,3 @@ It is also worth considering that the distance on the overlay is closest to real
 are at the same height, if the enemy is higher or lower than you, then the distance will be slightly underestimated
 compared to reality
 
-
-
-
-
-	What else can be done, but I will not do
-
-	It is possible instead of displaying a dialog box
-	Take the distance and set it with a script in the scope
-	So that you don’t have to turn the wheel yourself
-	As I understand it, you need to open the sight file directly in the script
-	see where your needed the distance on the reticle
-	if the sight is not very accurate (not every 50 meters)
-	you will probably have to interpolate
-	should get a position on the reticle
-	next you need to measure the distance in pixels from the zeroed sight
-	to the found position
-	let's say some number comes out: 3418 pixels
-	then call computer scroll
-	you can even scroll with more than one command
-	and create an emulation of 15-20 scrolls
-	and so that at some point the scrolling goes beyond 3418 pixels
-	as if scrolling a little further
-	but eventually returned to 3418 pixels
-	and show a pop-up notification when the crosshair is set
-
-	you can also probably take into account the parallax for SB
-	if i understand correctly
-	if you do auto setting distance, then
-	you need to have a scope for each tank
-	if you are going to take into account parallax, then this one
-	the most parallax apparently should be taken into account
-
-
-
-
