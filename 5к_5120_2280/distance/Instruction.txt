@@ -125,7 +125,7 @@ Interesting features:
 Sometimes, especially when your tank is not horizontal
 The azimuth on the overlay starts showing some shit
 He writes 262.4 and on the compass in the WT you can see 261.9
-So this is not an overlay fouled, these are the developers of the WT fucked up
+So this is not an overlay fouled
 If you put your tank on its side, you will go crazy because the compass is smeared all over the screen
 You don't have to worry about it, the accuracy of measuring the distance does not depend on the inclination of your tank
 
@@ -147,13 +147,10 @@ This may not be enough to throw AVRE shells 3 kilometers into the tank hull
 the mark will be within the silhouette of the tank and you will hit)
 Also, the inaccuracy is introduced by the fact that the rangefinder does not work with a large map, but with a minimap
 The main purpose of this rangefinder is to give players
-On all sorts of 34s, Shermans, KV-2s that do not have a laser rangefinder
-The ability to quickly measure the distance and make a shot, within a second after the enemy is detected
-And hit the target even if the enemy is a couple of kilometers away from you.
-I want every player on any BR to have a "laser" rangefinder
-Which does not interact with the game process in any way, and apparently is not detected by the WT and anti-cheat
-The whole process is built on screenshots and an overlay on top of all windows
-(although topmost and forced window on top of all windows are debatable)
+On all sorts of 34s, Shermans, KV-2s
+The ability to quickly measure the distance and make a shot
+
+The whole process is built on screenshots and an overlay
 
 Regarding the distance measurement speed:
 When you press the button
@@ -184,7 +181,7 @@ compared to reality
 
 	It is possible instead of displaying a dialog box
 	Take the distance and set it with a script in the scope
-	So that you don’t have to turn the fucking wheel yourself
+	So that you don’t have to turn the wheel yourself
 	As I understand it, you need to open the sight file directly in the script
 	see where your needed the distance on the reticle
 	if the sight is not very accurate (not every 50 meters)
