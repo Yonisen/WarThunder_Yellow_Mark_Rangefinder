@@ -1,4 +1,4 @@
-# WarThunder_Yellow_Mark_Rangefinder_21
+# WarThunder_Yellow_Mark_Rangefinder_23
 
 Rangefinder on the yellow mark on the map. It works on <b>any</b> computer, even the oldest one.<br>
 Uses screenshots and overlay. Based on a neural network YOLOv5 from ultralitics.<br>
