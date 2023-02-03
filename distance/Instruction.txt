@@ -31,7 +31,7 @@ Wartunder is now configured
 Setting buttons and screen resolution:
 
 Go to distance folder
-Double-click to run the file "settings.py"
+Double-click to run the file "settings.pyw"
 Choose the screen resolution
 and assign combinations for distance measurement and scale setting or leave the default values (t and Ctrl+N)
 Save changes by pressing "Apply"
