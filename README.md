@@ -1,4 +1,4 @@
-# WarThunder_Yellow_Mark_Rangefinder_23
+# WarThunder_Yellow_Mark_Rangefinder_25
 
 Rangefinder on the yellow mark on the map. It works on <b>any</b> computer, even the oldest one.<br>
 Uses screenshots and overlay. Based on a neural network YOLOv5 from ultralitics.<br>
@@ -9,8 +9,7 @@ This version is a translation of my original which is <a href="https://github.co
 ## Installation
 
 - Download archive
-- Unzip the folder with the screen resolution you need
-- Open this folder and navigate to the `distance` folder
+- Unzip archive and navigate to the `distance` folder
 - Read `Instruction.txt` (it also contains interesting features)
 
 ## Distance measurement (t)
