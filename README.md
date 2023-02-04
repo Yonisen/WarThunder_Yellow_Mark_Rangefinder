@@ -1,4 +1,4 @@
-# WarThunder_Yellow_Mark_Rangefinder_25
+# WarThunder_Yellow_Mark_Rangefinder_27
 
 Rangefinder on the yellow mark on the map. It works on <b>any</b> computer, even the oldest one.<br>
 Uses screenshots and overlay. Based on a neural network YOLOv5 from ultralitics.<br>
@@ -41,6 +41,10 @@ Second neural network is looking for a yellow mark in the screenshot<br>
 ## Setting the map scale (Ctrl+N)
 <img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen68.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen69.jpg">
+
+## Setting up program
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen1.png">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen2.png">
 
 ### Support
 You can support me here:<br>
