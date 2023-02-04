@@ -4,7 +4,19 @@ import re
 import win32gui
 from threading import Timer
 import traceback
-try:   
+import configparser
+
+try: 
+
+    def read_config(name):
+        config = configparser.ConfigParser()
+        config.read(name, encoding='utf-8')
+        conf = {}
+        conf['scale_x'] = config.get("Combinations", "scale_x")
+        conf['scale_y'] = config.get("Combinations", "scale_y")
+        return conf
+    conf = read_config("code/buttons.ini")
+  
     ######################################################################
     #Создание окна масштаба
 
@@ -70,7 +82,8 @@ try:
             file.close()                
 
     root = Tk()
-    root.geometry("173x70+15+71") 
+    geometry = f"173x70+{conf['scale_x']}+{conf['scale_y']}"
+    root.geometry(geometry) 
     check = (root.register(validation), "%P")
     entry = Entry(fg="yellow", bg="black", font=('Roboto','16'), width = 5, validate="key", validatecommand=check)
     entry.master.overrideredirect(True)

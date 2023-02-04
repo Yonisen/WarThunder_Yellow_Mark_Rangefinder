@@ -1,4 +1,4 @@
-Version 25
+Version 27
 There may be a newer one on github: https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder
 
 If your monitor is not supported, then write Yonisen#3035 in the discord
@@ -28,12 +28,13 @@ Set minimap size to 133% (largest) (options-mainParameters-groundVehicleBattleSe
 Assign a button to the yellow mark (controls-common:setTargetForSquad)
 Wartunder is now configured
 
-Setting buttons and screen resolution:
+Setting up program:
 
 Go to distance folder
-Double-click to run the file "settings.pyw"
-Choose the screen resolution
-and assign combinations for distance measurement and scale setting or leave the default values (t and Ctrl+N)
+Double-click to run the file "settings.py"
+Choose the screen resolution and
+assign combinations for distance measurement and scale setting or leave the default values (t and Ctrl+N),
+also, if you want, you can change the positioning and transparency of the overlay
 Save changes by pressing "Apply"
 I recommend using the same button for distance measurement as for the yellow mark
 

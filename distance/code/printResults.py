@@ -7,8 +7,36 @@ import time
 #import asyncio                
 import win32gui, win32api, win32con, pywintypes
 import traceback
+import configparser
 
 try:
+
+    def read_config(name):
+        config = configparser.ConfigParser()
+        config.read(name, encoding='utf-8')
+        conf = {}
+        conf['print_x'] = config.get("Combinations", "print_x")
+        conf['print_y'] = config.get("Combinations", "print_y")
+        conf['print_width'] = config.get("Combinations", "print_width")
+        conf['print_height'] = config.get("Combinations", "print_height")
+        conf['print_distance'] = config.get("Combinations", "print_distance")
+        conf['print_azimuth'] = config.get("Combinations", "print_azimuth")
+        conf['print_scale'] = config.get("Combinations", "print_scale")
+        conf['print_transparent'] = config.get("Combinations", "print_transparent")
+        return conf
+    conf = read_config("code/buttons.ini")
+    
+    bg = ""
+    fg = ""
+    if conf['print_transparent'] == "1":
+        bg = 'white'
+        fg = 'yellow'
+    else:
+        bg = 'yellow'
+        fg = 'black'        
+    
+    geometry = f"{conf['print_width']}x{conf['print_height']}+{conf['print_x']}+{conf['print_y']}"
+    
     code = sys.argv[1]
 
     if code == "true":
@@ -21,13 +49,26 @@ try:
         #Создание диалогового окна с результатами
 
         root = Tk()
-        root.geometry("173x90+15+15") 
-        label = Label(root, text=f'Range: {distance}\nAzimuth: {angel}\ns. {scale}', font=('Roboto','19'), fg='black', bg='yellow')
+        root.configure(bg = bg)
+        root.geometry(geometry) 
+        text = ""
+        if conf['print_distance'] == "1":
+            text += f'Range: {distance}'
+        if conf['print_azimuth'] == "1":
+            if text != "":
+                text+='\n'
+            text += f'Azimuth: {angel}'  
+        if conf['print_scale'] == "1":
+            if text != "":
+                text+='\n'        
+            text += f's. {scale}'     
+        label = Label(root, text=text, font=('Roboto','19'), fg=fg, bg=bg)
         label.master.overrideredirect(True)
         label.master.lift()
         label.master.wm_attributes("-topmost", True)
         label.master.wm_attributes("-disabled", True)
-        #label.master.wm_attributes("-transparentcolor", "yellow")
+        if conf['print_transparent'] == "1":
+            root.wm_attributes("-transparentcolor", bg)
         
         hWindow = pywintypes.HANDLE(int(label.master.frame(), 16)) 
         exStyle = win32con.WS_EX_LAYERED | win32con.WS_EX_NOACTIVATE | win32con.WS_EX_TRANSPARENT
@@ -38,13 +79,20 @@ try:
     elif code == "errorArrow":
         scale = sys.argv[2]
         root = Tk()
-        root.geometry("173x90+15+15") 
-        label = Label(root, text=f'your tank\nnot found\ns. {scale}', font=('Roboto','19'), fg='black', bg='yellow')
+        root.configure(bg = bg)
+        root.geometry(geometry) 
+        text = 'your tank\nnot found'
+        if conf['print_scale'] == "1":
+            if text != "":
+                text+='\n'        
+            text += f's. {scale}'           
+        label = Label(root, text=text, font=('Roboto','19'), fg=fg, bg=bg)
         label.master.overrideredirect(True)
         label.master.lift()
         label.master.wm_attributes("-topmost", True)
         label.master.wm_attributes("-disabled", True)
-        #label.master.wm_attributes("-transparentcolor", "yellow")
+        if conf['print_transparent'] == "1":
+            root.wm_attributes("-transparentcolor", bg)
         
         hWindow = pywintypes.HANDLE(int(label.master.frame(), 16)) 
         exStyle = win32con.WS_EX_LAYERED | win32con.WS_EX_NOACTIVATE | win32con.WS_EX_TRANSPARENT
@@ -55,13 +103,20 @@ try:
     elif code == "errorMarker":
         scale = sys.argv[2]
         root = Tk()
-        root.geometry("173x90+15+15") 
-        label = Label(root, text=f'mark\nnot found\ns. {scale}', font=('Roboto','19'), fg='black', bg='yellow')
+        root.configure(bg = bg)
+        root.geometry(geometry) 
+        text = 'mark\nnot found'
+        if conf['print_scale'] == "1":
+            if text != "":
+                text+='\n'        
+            text += f's. {scale}'            
+        label = Label(root, text=text, font=('Roboto','19'), fg=fg, bg=bg)
         label.master.overrideredirect(True)
         label.master.lift()
         label.master.wm_attributes("-topmost", True)
         label.master.wm_attributes("-disabled", True)
-        #label.master.wm_attributes("-transparentcolor", "yellow")
+        if conf['print_transparent'] == "1":
+            root.wm_attributes("-transparentcolor", bg)
         
         hWindow = pywintypes.HANDLE(int(label.master.frame(), 16)) 
         exStyle = win32con.WS_EX_LAYERED | win32con.WS_EX_NOACTIVATE | win32con.WS_EX_TRANSPARENT
@@ -72,13 +127,20 @@ try:
     elif code == "AError":
         scale = sys.argv[2]
         root = Tk()
-        root.geometry("173x90+15+15") 
-        label = Label(root, text=f'letters а|е|g\nmatch\ns. {scale}', font=('Roboto','19'), fg='black', bg='yellow')
+        root.configure(bg = bg)
+        root.geometry(geometry) 
+        text = 'letters а|е|g\nmatch'
+        if conf['print_scale'] == "1":
+            if text != "":
+                text+='\n'        
+            text += f's. {scale}'          
+        label = Label(root, text=text, font=('Roboto','19'), fg=fg, bg=bg)
         label.master.overrideredirect(True)
         label.master.lift()
         label.master.wm_attributes("-topmost", True)
         label.master.wm_attributes("-disabled", True)
-        #label.master.wm_attributes("-transparentcolor", "yellow")
+        if conf['print_transparent'] == "1":
+            root.wm_attributes("-transparentcolor", bg)
         
         hWindow = pywintypes.HANDLE(int(label.master.frame(), 16)) 
         exStyle = win32con.WS_EX_LAYERED | win32con.WS_EX_NOACTIVATE | win32con.WS_EX_TRANSPARENT
