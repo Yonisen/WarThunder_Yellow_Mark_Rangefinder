@@ -23,6 +23,7 @@ try:
         conf['print_azimuth'] = config.get("Combinations", "print_azimuth")
         conf['print_scale'] = config.get("Combinations", "print_scale")
         conf['print_transparent'] = config.get("Combinations", "print_transparent")
+        conf['print_time'] = config.get("Combinations", "print_time")
         return conf
     conf = read_config("code/buttons.ini")
     
@@ -190,7 +191,7 @@ try:
     #finally:
     #    t.cancel()
 
-    time.sleep(7)
+    time.sleep(float(conf['print_time']))
     quit()
     ######################################################################
 except Exception as e:

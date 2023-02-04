@@ -37,7 +37,17 @@ try:
         import distanceFinder
         #from tkinter import *
         from subprocess import Popen
-        from multiprocessing import Queue, Process    
+        from multiprocessing import Queue, Process 
+        import psutil
+        from contextlib import suppress
+        from threading import Timer
+        
+        def terminatePrintResults():
+            for process in psutil.process_iter():
+                with suppress(psutil.NoSuchProcess, ProcessLookupError):
+                    if process.name() == 'python.exe' and 'code/printResults.py' in process.cmdline():
+                        #print(process.pid)
+                        process.terminate()        
     
         print("Initialization of neural network")
 
@@ -85,6 +95,9 @@ try:
             msg = queue.get()
             if msg == "distance":
                 print("")
+                timeout = 0
+                t = Timer(timeout, terminatePrintResults)
+                t.start()                 
                 time.sleep(0.3)
                 distanceFinder.checkDistance(model)
             elif msg == "scale":

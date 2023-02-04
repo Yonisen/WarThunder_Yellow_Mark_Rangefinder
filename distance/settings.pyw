@@ -50,6 +50,7 @@ try:
             conf['print_y'] = config.get("Combinations", "print_y")
             conf['print_width'] = config.get("Combinations", "print_width")
             conf['print_height'] = config.get("Combinations", "print_height")
+            conf['print_time'] = config.get("Combinations", "print_time")
             conf['print_distance'] = config.get("Combinations", "print_distance")
             conf['print_azimuth'] = config.get("Combinations", "print_azimuth")
             conf['print_scale'] = config.get("Combinations", "print_scale")
@@ -79,6 +80,7 @@ try:
             config.set("Combinations", "print_y", entry_print_y.get())
             config.set("Combinations", "print_width", entry_print_width.get())
             config.set("Combinations", "print_height", entry_print_height.get())
+            config.set("Combinations", "print_time", entry_print_time.get())
             config.set("Combinations", "print_distance", str(print_distance.get()))
             config.set("Combinations", "print_azimuth", str(print_azimuth.get()))
             config.set("Combinations", "print_scale", str(print_scale.get()))
@@ -129,6 +131,9 @@ try:
 
             entry_print_height.delete(0, END)
             entry_print_height.insert(0, '90')            
+            
+            entry_print_time.delete(0, END)
+            entry_print_time.insert(0, '7')             
             
             entry_scale_x.delete(0, END)
             entry_scale_x.insert(0, '15')
@@ -187,6 +192,8 @@ try:
     distance_form_3.pack(anchor=W)
     distance_form_4 = tk.Frame(master=distance_form)
     distance_form_4.pack(anchor=W) 
+    distance_form_5 = tk.Frame(master=distance_form)
+    distance_form_5.pack(anchor=W)    
 
     scale_form_1 = tk.Frame(master=scale_form)
     scale_form_1.pack(anchor=W)
@@ -196,13 +203,13 @@ try:
     label_header_distance = tk.Label(master=distance_form_1, text="Distance window", font=('Roboto','14'))
     label_header_distance.pack(pady=5)
 
-    label_print_x = tk.Label(master=distance_form_2, text="X", font=('Roboto','14'))
+    label_print_x = tk.Label(master=distance_form_2, text="x", font=('Roboto','14'))
     label_print_x.grid(row=0, column=0, pady=5)
     entry_print_x = tk.Entry(master=distance_form_2, width=7, font=('Roboto','14'))
     entry_print_x.grid(row=0, column=1)
     entry_print_x.insert(0, conf['print_x'])
     
-    label_print_y = tk.Label(master=distance_form_2, text="Y", font=('Roboto','14'))
+    label_print_y = tk.Label(master=distance_form_2, text="y", font=('Roboto','14'))
     label_print_y.grid(row=0, column=2, pady=5)
     entry_print_y = tk.Entry(master=distance_form_2, width=7, font=('Roboto','14'))
     entry_print_y.grid(row=0, column=3)
@@ -240,18 +247,23 @@ try:
     checkbutton_print_transparent = tk.Checkbutton(master=distance_form_4, text="Transparent background", font=('Roboto','14'), variable=print_transparent)
     checkbutton_print_transparent.pack(pady=5)    
 
+    label_print_time = tk.Label(master=distance_form_5, text="Show duration", font=('Roboto','14'))
+    label_print_time.grid(row=0, column=0, pady=5)
+    entry_print_time = tk.Entry(master=distance_form_5, width=7, font=('Roboto','14'))
+    entry_print_time.grid(row=0, column=1)
+    entry_print_time.insert(0, conf['print_time'])  
 
 
     label_header_scale = tk.Label(master=scale_form_1, text="Scale window", font=('Roboto','14'))
     label_header_scale.pack(pady=5)
     
-    label_scale_x = tk.Label(master=scale_form_2, text="X", font=('Roboto','14'))
+    label_scale_x = tk.Label(master=scale_form_2, text="x", font=('Roboto','14'))
     label_scale_x.grid(row=0, column=0, pady=5)
     entry_scale_x = tk.Entry(master=scale_form_2, width=7, font=('Roboto','14'))
     entry_scale_x.grid(row=0, column=1) 
     entry_scale_x.insert(0, conf['scale_x'])    
     
-    label_scale_y = tk.Label(master=scale_form_2, text="Y", font=('Roboto','14'))
+    label_scale_y = tk.Label(master=scale_form_2, text="y", font=('Roboto','14'))
     label_scale_y.grid(row=0, column=2, pady=5)
     entry_scale_y = tk.Entry(master=scale_form_2, width=7, font=('Roboto','14'))
     entry_scale_y.grid(row=0, column=3) 
