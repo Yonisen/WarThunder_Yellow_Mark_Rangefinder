@@ -48,6 +48,7 @@ try:
             file.close()
 
     def close():
+        selectWindow()
         quit()
 
     def validation(newval):
@@ -98,9 +99,6 @@ try:
     btn.place(x=87, y=40)
 
     btn1 = ttk.Button(text="X", command=close, width=3)
-    btn1.bind("<Button-1>",selectWindow)
-    btn1.bind("<Button-2>",selectWindow)
-    btn1.bind("<Button-3>",selectWindow)
     btn1.master.overrideredirect(True)
     btn1.master.lift()
     btn1.master.wm_attributes("-topmost", True)
