@@ -93,12 +93,10 @@ def checkDistance(model):
                 yellowMarker = i.numpy()               
         
         if type(tankArrow) is int:
-            showErrorArrow(scale, screen)
-            return            
+            return showErrorArrow(scale, screen)         
             
         if type(yellowMarker) is int:
-            showErrorMarker(scale, screen)
-            return    
+            return showErrorMarker(scale, screen)
 
         tankPosition = ((tankArrow[2]+tankArrow[0])/2, (tankArrow[3]+tankArrow[1])/2)            
         
@@ -219,8 +217,7 @@ def checkDistance(model):
         line = abs(newArrOfBukv[0][0]-newArrOfBukv[1][0])/abs(newArrOfBukv[0][1][0]-newArrOfBukv[1][1][0])
         print(f'{newArrOfBukv[0][1][1]} and {newArrOfBukv[1][1][1]} letters were taken to calculate the scale')
         if line == 0:
-            showAError(scale)  
-            return
+            return showAError(scale)  
         ######################################################################
         
         #получаем дистанцию в метрах
@@ -232,7 +229,8 @@ def checkDistance(model):
         #proc = subprocess.Popen(command, startupinfo=startupinfo)
         comand=["python", 'code/printResults.py', "true", f'{round(distance)}', f'{round(angel,1)}', f'{scale}']
         #Popen(comand, stdin=None, stdout=None, stderr=None, creationflags = 0x08000000)
-        Popen(comand)
+        process = Popen(comand)
+        return process
         #os.system(f'python printResults.py {round(distance)} {round(angel,1)}')
         #label['text'] = f'Дист: {round(distance)}\nАзимут: {round(angel,1)}'
         #if label['bg'] == "yellow":
@@ -254,7 +252,8 @@ def showErrorArrow(scale, screen):
     file.write(str(number))
     file.close()
     comand=["python", 'code/printResults.py', "errorArrow", f'{scale}']
-    Popen(comand)
+    process = Popen(comand)
+    return process
     #label['text'] = 'твой танк\nне найден'
     #if label['bg'] == "yellow":
     #    label['bg'] = "orange"
@@ -275,7 +274,8 @@ def showErrorMarker(scale, screen):
     file.write(str(number))
     file.close()
     comand=["python", 'code/printResults.py', "errorMarker", f'{scale}']
-    Popen(comand)
+    process = Popen(comand)
+    return process
     #label['text'] = 'метка\nне найдена'
     #if label['bg'] == "yellow":
     #    label['bg'] = "orange"
@@ -284,7 +284,8 @@ def showErrorMarker(scale, screen):
     #root.update()
 def showAError(scale):
     comand=["python", 'code/printResults.py', "AError", f'{scale}']
-    Popen(comand)
+    process = Popen(comand)
+    return process
 #def showErrorNumber(label, root):
 #    label['text'] = 'масштаб\nкарты\nне определен'
 #    if label['bg'] == "yellow":
