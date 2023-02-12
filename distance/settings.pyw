@@ -2,6 +2,9 @@ from tkinter import *
 import tkinter as tk
 import configparser
 import traceback
+import psutil
+from contextlib import suppress
+import re
 
 try:
 
@@ -67,6 +70,24 @@ try:
             traceback.print_exc()
             file.close()        
 
+    def terminateSignals():
+        
+        file = open('code/pid.txt', 'a+')
+        file.seek(0)
+        pid = file.read()
+        file.close()  
+        
+        for process in psutil.process_iter():
+            with suppress(psutil.NoSuchProcess, ProcessLookupError):
+                if process.name() == 'python.exe':
+                    cmdline = process.cmdline()
+                    for cmdAttr in cmdline:
+                        regexp = r'parent_pid=' + pid + r','
+                        result = re.search(regexp, cmdAttr)
+                        if result != None:
+                            process.terminate()
+                            break  
+
     def write_config():
         try:
             config = configparser.ConfigParser()
@@ -90,7 +111,9 @@ try:
             
             with open('code/buttons.ini', "w", encoding="utf-8") as file:
                 config.write(file)
-                    
+            
+            terminateSignals()
+            
             window.destroy()        
                 
         except Exception as e:

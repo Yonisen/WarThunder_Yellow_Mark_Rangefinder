@@ -38,7 +38,12 @@ try:
         #from tkinter import *
         from subprocess import Popen
         from multiprocessing import Queue, Process 
-    
+        from threading import Timer
+        import os
+        
+        file = open('code/pid.txt', 'w')
+        file.write(str(os.getpid()))
+        file.close()    
     
         print("Initialization of neural network")
 
@@ -71,12 +76,29 @@ try:
 
         #модели нейросетей готовы к работе
 
+        queue = 0
+        process1 = 0
+        process3 = 0
         
-        queue = Queue()
-        process1 = Process(target=signal1, args=(queue,))
-        process1.start()
-        process3 = Process(target=signal3, args=(queue,))
-        process3.start()        
+        def startChilds():      
+            global queue, process1, process3
+            queue = Queue()
+            process1 = Process(target=signal1, args=(queue,))
+            process1.start()
+            process3 = Process(target=signal3, args=(queue,))
+            process3.start()        
+            checkSignals()
+            
+        def checkSignals():
+            
+            if (process1.exitcode != 0 and process1.exitcode != None) or (process3.exitcode != 0 and process3.exitcode != None):
+                queue1 = queue
+                startChilds()
+                queue1.put("skip")
+            else:
+                Timer(0.1, checkSignals).start()
+        
+        startChilds()
         
                                                    
         print("\nThe program is waiting for a keystroke")
