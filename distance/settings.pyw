@@ -77,10 +77,35 @@ try:
         pid = file.read()
         file.close()  
         
-        for process in psutil.process_iter():
+        file = open('code/pid1.txt', 'a+')
+        file.seek(0)
+        pid1 = file.read()
+        file.close() 
+
+        file = open('code/pid3.txt', 'a+')
+        file.seek(0)
+        pid3 = file.read()
+        file.close()         
+        
+        if pid1 == "":
+            pid1 = "0"
+        
+        if pid3 == "":
+            pid3 = "0"       
+        
+        processes = []
+        processes.append(int(pid1))
+        processes.append(int(pid3))
+        
+        for process in processes:
+            
             with suppress(psutil.NoSuchProcess, ProcessLookupError):
+                
+                process = psutil.Process(process)
+
                 if process.name() == 'python.exe':
                     cmdline = process.cmdline()
+                    
                     for cmdAttr in cmdline:
                         regexp = r'parent_pid=' + pid + r','
                         result = re.search(regexp, cmdAttr)

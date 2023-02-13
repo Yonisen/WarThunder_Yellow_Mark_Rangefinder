@@ -1,5 +1,6 @@
 import traceback
 import sys
+import os
 sys.path.append('code/')
 
 try:
@@ -8,6 +9,9 @@ try:
         try:
         
             import signal1
+            file = open('code/pid1.txt', 'w')
+            file.write(str(os.getpid()))
+            file.close()              
             signal1.signal1(queue)
             
         except Exception as e:
@@ -21,6 +25,9 @@ try:
         try:
         
             import signal3
+            file = open('code/pid3.txt', 'w')
+            file.write(str(os.getpid()))
+            file.close()              
             signal3.signal3(queue)
             
         except Exception as e:
@@ -39,7 +46,6 @@ try:
         from subprocess import Popen
         from multiprocessing import Queue, Process 
         from threading import Timer
-        import os
         
         file = open('code/pid.txt', 'w')
         file.write(str(os.getpid()))
