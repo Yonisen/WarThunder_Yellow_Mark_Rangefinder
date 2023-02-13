@@ -88,9 +88,9 @@ def checkDistance(model):
         for i in results.xyxy[0]:
             classD = int(i[5])
             if (classD == 0 or classD == 1) and type(tankArrow) is int:
-                tankArrow = i.numpy()
+                tankArrow = i.numpy(force=True)
             if classD == 2 and type(yellowMarker) is int:
-                yellowMarker = i.numpy()               
+                yellowMarker = i.numpy(force=True)               
         
         if type(tankArrow) is int:
             return showErrorArrow(scale, screen)         
