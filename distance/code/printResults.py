@@ -1,13 +1,14 @@
 from tkinter import *
 import sys
-import time
+#import time
 #import os
 #import signal
-#from threading import Timer
-#import asyncio                
+#import asyncio   
+#from threading import Timer             
 import win32gui, win32api, win32con, pywintypes
 import traceback
 import configparser
+#import pdb
 
 try:
 
@@ -39,6 +40,8 @@ try:
     geometry = f"{conf['print_width']}x{conf['print_height']}+{conf['print_x']}+{conf['print_y']}"
     
     code = sys.argv[1]
+    
+    root = 0
 
     if code == "true":
 
@@ -76,7 +79,6 @@ try:
         win32api.SetWindowLong(hWindow, win32con.GWL_EXSTYLE, exStyle)
         
         label.pack()
-        root.update()
     elif code == "errorArrow":
         scale = sys.argv[2]
         root = Tk()
@@ -100,7 +102,6 @@ try:
         win32api.SetWindowLong(hWindow, win32con.GWL_EXSTYLE, exStyle)
         
         label.pack()
-        root.update()    
     elif code == "errorMarker":
         scale = sys.argv[2]
         root = Tk()
@@ -124,7 +125,6 @@ try:
         win32api.SetWindowLong(hWindow, win32con.GWL_EXSTYLE, exStyle)
         
         label.pack()
-        root.update()  
     elif code == "AError":
         scale = sys.argv[2]
         root = Tk()
@@ -148,22 +148,38 @@ try:
         win32api.SetWindowLong(hWindow, win32con.GWL_EXSTYLE, exStyle)
         
         label.pack()
-        root.update() 
-        
-    toplist = []
-    winlist = []
-    def enum_callback(hwnd, results):
-        winlist.append((hwnd, win32gui.GetWindowText(hwnd)))
 
-    win32gui.EnumWindows(enum_callback, toplist)
-    wt = [(hwnd, title) for hwnd, title in winlist if 'war thunder' in title.lower()]
-    # just grab the first window that matches
-    if wt !=[]:
-        wt = wt[0]
-        # use the window handle to set focus
-        win32gui.SetForegroundWindow(wt[0])    
-    #pid = os.getpid()
-    #os.kill(pid, signal.SIGTERM)
+    def selectWindow(event=1):
+        try:
+            toplist = []
+            winlist = []
+            def enum_callback(hwnd, results):
+                winlist.append((hwnd, win32gui.GetWindowText(hwnd)))
+
+            win32gui.EnumWindows(enum_callback, toplist)
+            wt = [(hwnd, title) for hwnd, title in winlist if 'war thunder' in title.lower()]
+            # just grab the first window that matches
+            #pdb.set_trace()
+            if wt !=[]:
+                wt = wt[0]
+                # use the window handle to set focus
+                win32gui.SetForegroundWindow(wt[0])  
+            
+        except Exception as e:
+
+            if e.funcname == "SetForegroundWindow":
+                pass
+            else:
+                file = open('error.log', 'a')
+                file.write('\n\n')
+                traceback.print_exc(file=file, chain=True)
+                traceback.print_exc()
+                file.close()
+                
+
+    root.after(0, selectWindow)   
+    root.after(int(float(conf['print_time'])*1000), root.destroy)
+    root.mainloop()        
 
 
     #arguments: 
@@ -190,9 +206,6 @@ try:
     #    answer = input(prompt)
     #finally:
     #    t.cancel()
-
-    time.sleep(float(conf['print_time']))
-    quit()
     ######################################################################
 except Exception as e:
     file = open('error.log', 'a')

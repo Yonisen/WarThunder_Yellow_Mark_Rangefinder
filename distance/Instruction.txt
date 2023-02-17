@@ -1,4 +1,4 @@
-Version 28.5
+Version 30
 There may be a newer one on github: https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder
 
 If your monitor is not supported, then write Yonisen#3035 in the discord
