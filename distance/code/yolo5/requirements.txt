@@ -20,6 +20,8 @@ tk
 pywin32
 pyautogui
 pynput
+onnx
+onnxruntime
 
 # Logging ---------------------------------------------------------------------
 tensorboard>=2.4.1
