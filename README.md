@@ -13,38 +13,30 @@ This version is a translation of my original which is <a href="https://github.co
 - Read `Instruction.txt` (it also contains interesting features)
 
 ## Distance measurement (t)
-There are Russian inscriptions on the screenshots, but when you download the archive it will be in English<br>
-
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen70.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen71.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen72.jpg">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen30.png">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen30_1.png">
 
 ## What is happening
 A screenshot is being created<br>
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/karta0.jpg">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/Map30.png">
 
-First neural network looks for the mark of your tank in the screenshot<br>
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/karta1.jpg">
-
-Second neural network is looking for a yellow mark in the screenshot<br>
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/karta2.jpg">
+Neural network looks for the marks in the screenshot<br>
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/Map30_1.jpg">
 
 
 ## Another example
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/2/screen61.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/2/screen62.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/2/screen63.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/2/karta0.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/2/karta1.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/2/karta2.jpg">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen34.png">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen34_1.png">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/Map34.png">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/Map34_1.jpg">
 
 ## Setting the map scale (Ctrl+N)
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen68.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen69.jpg">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen3.png">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen4.png">
 
 ## Setting up program
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen1.png">
-<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/1/screen2.png">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen1.png">
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen2.png">
 
 ### Support
 You can support me here:<br>
