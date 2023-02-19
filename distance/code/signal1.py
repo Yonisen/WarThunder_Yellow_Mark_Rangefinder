@@ -63,9 +63,8 @@ def signal1(queue):
         if conf[1]:
             obj[conf[1]] = on_activate_cn
         
-        if obj != {}:
-            with GlobalHotKeys(obj) as h:
-                h.join()
+        with GlobalHotKeys(obj) as h:
+            h.join()
             
     except Exception as e:
         file = open('error.log', 'a')
