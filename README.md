@@ -9,6 +9,8 @@ This version is a translation of my original which is <a href="https://github.co
 ## Installation
 
 - Download archive
+<img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen5.png">
+
 - Unzip archive and navigate to the `distance` folder
 - Read `Instruction.txt` (it also contains interesting features)
 
