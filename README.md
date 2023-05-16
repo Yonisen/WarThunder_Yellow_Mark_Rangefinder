@@ -1,6 +1,6 @@
 # WarThunder_Yellow_Mark_Rangefinder_33
 
-<sub>15.05.2023 Check at the very bottom if this is not your first time here</sub>
+<sub>🙂 15.05.2023 Check at the very bottom if this is not your first time here</sub>
 
 Rangefinder on the yellow mark on the map. It works on <b>any</b> computer, even the oldest one.<br>
 Uses screenshots and overlay. Based on a neural network YOLOv5 from ultralitics.<br>
