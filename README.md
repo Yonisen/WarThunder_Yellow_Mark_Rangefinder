@@ -12,7 +12,7 @@ Newest one is <a href="https://github.com/Yonisen/WarThunder_Map_Marker_Finder">
 
 - Download archive (green button `Code`)
 
-- Unzip archive and navigate to the `distance` folder
+- Unzip the entire archive (you also need the `data` folder) and navigate to the `distance` folder
 - Read `Instruction.txt` (it also contains interesting features)
 
 ## Distance measurement (t)
