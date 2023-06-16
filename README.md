@@ -44,4 +44,4 @@ Neural network looks for the marks in the screenshot<br>
 ### Additionally
 I wrote another program<br>
 <b>Bomb</b> ballistic calculator with <b>point of impact</b> overlay (not free of course)<br>
-It is very cool, details on discord: Yonisen#3035
+It is very cool, details on discord: `yonisen`
