@@ -42,6 +42,6 @@ Neural network looks for the marks in the screenshot<br>
 <img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen2.png">
 
 ### Additionally
-I wrote another program<br>
+There is another program<br>
 <b>Bomb</b> ballistic calculator with <b>point of impact</b> overlay (not free of course)<br>
 It is very cool, details on discord: `yonisen`
