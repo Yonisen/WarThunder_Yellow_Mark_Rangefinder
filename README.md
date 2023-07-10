@@ -1,7 +1,5 @@
 # WarThunder_Yellow_Mark_Rangefinder_33
 
-<sub>🙂 15.05.2023 Check at the very bottom if this is not your first time here</sub>
-
 Rangefinder on the yellow mark on the map. It works on <b>any</b> computer, even the oldest one.<br>
 Uses screenshots and overlay. Based on a neural network YOLOv5 from ultralitics.<br>
 All calculations go through the processor.<br>
@@ -40,8 +38,3 @@ Neural network looks for the marks in the screenshot<br>
 ## Setting up program
 <img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen1.png">
 <img src="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder/blob/main/data/images/screen2.png">
-
-### Additionally
-There is another program<br>
-<b>Bomb</b> ballistic calculator with <b>point of impact</b> overlay (not free of course)<br>
-It is very cool, details on discord: `yonisen`
