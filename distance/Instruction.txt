@@ -14,6 +14,12 @@ Python 3.10.6
 Double-click to run the file "install.py" from the distance folder
 The console will open, wait for the installation to complete, the console will close itself
 
+Attention! If you have any problems running install.py or then with settings.py miniKarta.py
+Then most likely you previously installed another version of Python
+You can check this through the Control Panel Windows; there should be no other Python-like programs there (pycharm seems to be one of them too)
+If something doesn't work for you and you find a third-party Python (other than 3.10.6)
+Then remove everything (including 3.10.6) and perform a clean installation from the very beginning of the instruction.
+
 The above steps only need to be done once.
 Now the program is ready to work
 
@@ -167,7 +173,4 @@ For example W, to move forward, and after measuring the range, you still have no
 Then its effect is canceled, that is, the tank stops as if the key was not pressed
 This is because during the execution of the script, the focus from the warthunder window disappears for a moment.
 
-It is also worth considering that the distance on the overlay is closest to reality if you are with the enemy
-are at the same height, if the enemy is higher or lower than you, then the distance will be slightly underestimated
-compared to reality
 
