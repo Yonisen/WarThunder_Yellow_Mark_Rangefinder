@@ -18,7 +18,9 @@ Attention! If you have any problems running install.py or then with settings.py 
 Then most likely you previously installed another version of Python
 You can check this through the Control Panel Windows; there should be no other Python-like programs there (pycharm seems to be one of them too)
 If something doesn't work for you and you find a third-party Python (other than 3.10.6)
-Then remove everything (including 3.10.6) and perform a clean installation from the very beginning of the instruction.
+Then remove everything (and 3.10.6 too)
+Also, just in case, delete the folder (Python) with temporary files: C:\Users\Username\AppData\Local\Programs\Python
+And perform a clean installation from the very beginning of the instruction.
 
 The above steps only need to be done once.
 Now the program is ready to work
